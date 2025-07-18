@@ -7,6 +7,20 @@ public class Account {
     private User user;
     private Double balance;
 
+    public Account() {
+    }
+
+    public Account(Long id, User user, Double balance) {
+        this.id = id;
+        this.user = user;
+        this.balance = balance;
+    }
+
+    public Account(User user, Double balance) {
+        this.user = user;
+        this.balance = balance;
+    }
+
     public Long getId() {
         return id;
     }
@@ -31,7 +45,7 @@ public class Account {
         this.balance = balance;
     }
 
-    void deposit(double valor){
+    public void deposit(double valor){
         if (valor > 0){
             this.balance += valor;
         }
