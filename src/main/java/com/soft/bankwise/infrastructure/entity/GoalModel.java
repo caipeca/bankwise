@@ -1,4 +1,4 @@
-package com.soft.bankwise.model;
+package com.soft.bankwise.domain.model;
 
 import jakarta.persistence.*;
 

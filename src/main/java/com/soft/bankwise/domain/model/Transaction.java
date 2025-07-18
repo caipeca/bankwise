@@ -1,4 +1,4 @@
-package com.soft.bankwise.model;
+package com.soft.bankwise.infrastructure.entity;
 
 import jakarta.persistence.*;
 
@@ -10,7 +10,7 @@ public class TransactionModel {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
-    private AccountModel account;
+    private AccountEntity account;
     private String type;
     private Double amount;
     private String description;
@@ -23,11 +23,11 @@ public class TransactionModel {
         this.id = id;
     }
 
-    public AccountModel getAccount() {
+    public AccountEntity getAccount() {
         return account;
     }
 
-    public void setAccount(AccountModel account) {
+    public void setAccount(AccountEntity account) {
         this.account = account;
     }
 

@@ -1,4 +1,4 @@
-package com.soft.bankwise.model;
+package com.soft.bankwise.domain.model;
 
 import jakarta.persistence.*;
 
@@ -35,5 +35,19 @@ public class AccountModel {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    void deposit(double valor){
+        if (valor > 0){
+            this.balance += valor;
+        }
+    }
+
+    void withdraw(double valor){
+        if (valor > 0){
+            if (valor >= this.balance){
+                this.balance -= valor;
+            }
+        }
     }
 }

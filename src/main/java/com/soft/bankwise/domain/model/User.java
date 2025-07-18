@@ -1,4 +1,4 @@
-package com.soft.bankwise.model;
+package com.soft.bankwise.infrastructure.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
