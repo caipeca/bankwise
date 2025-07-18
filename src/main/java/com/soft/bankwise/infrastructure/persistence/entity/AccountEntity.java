@@ -1,15 +1,16 @@
-package com.soft.bankwise.domain.model;
+package com.soft.bankwise.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-public class AccountModel {
+@Table(name = "account")
+public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "user_id",nullable = false )
-    private UserModel user;
+    private UserEntity user;
 
     private Double balance;
 
@@ -21,11 +22,11 @@ public class AccountModel {
         this.id = id;
     }
 
-    public UserModel getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(UserModel user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
@@ -37,17 +38,4 @@ public class AccountModel {
         this.balance = balance;
     }
 
-    void deposit(double valor){
-        if (valor > 0){
-            this.balance += valor;
-        }
-    }
-
-    void withdraw(double valor){
-        if (valor > 0){
-            if (valor >= this.balance){
-                this.balance -= valor;
-            }
-        }
-    }
 }

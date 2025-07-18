@@ -1,15 +1,8 @@
-package com.soft.bankwise.infrastructure.entity;
+package com.soft.bankwise.domain.model;
 
-import jakarta.persistence.*;
-
-@Entity
-public class GoalModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Goal {
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private AccountEntity account;
+    private Account account;
     private Double targetAmount;
     private Double currentAmount;
     private String title;
@@ -23,11 +16,11 @@ public class GoalModel {
         this.id = id;
     }
 
-    public AccountEntity getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(AccountEntity account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 

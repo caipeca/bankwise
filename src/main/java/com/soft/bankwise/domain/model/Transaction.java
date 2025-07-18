@@ -1,16 +1,10 @@
-package com.soft.bankwise.infrastructure.entity;
+package com.soft.bankwise.domain.model;
 
-import jakarta.persistence.*;
 
-@Entity
-public class TransactionModel {
+public class Transaction {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
-    private AccountEntity account;
+    private Account account;
     private String type;
     private Double amount;
     private String description;
@@ -23,11 +17,11 @@ public class TransactionModel {
         this.id = id;
     }
 
-    public AccountEntity getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public void setAccount(AccountEntity account) {
+    public void setAccount(Account account) {
         this.account = account;
     }
 
