@@ -3,7 +3,9 @@ package com.soft.bankwise.utils.mapper;
 import com.soft.bankwise.application.dto.input.CreateAccountInput;
 import com.soft.bankwise.application.dto.output.AccountOutput;
 import com.soft.bankwise.domain.model.Account;
+import com.soft.bankwise.domain.model.User;
 import com.soft.bankwise.infrastructure.persistence.entity.AccountEntity;
+import com.soft.bankwise.infrastructure.persistence.entity.UserEntity;
 import com.soft.bankwise.web.dto.request.CreateAccountRequest;
 import com.soft.bankwise.web.dto.response.AccountResponse;
 
@@ -52,5 +54,13 @@ public class Mapper {
         accountResponse.setAccountId(accountOutput.getAccountId());
         accountResponse.setStatus(accountOutput.getStatus());
         return accountResponse;
+    }
+
+    public User toUser(UserEntity userEntity){
+        User user = new User();
+        user.setId(userEntity.getId());
+        user.setUsername(userEntity.getUsername());
+        user.setPassword(userEntity.getPassword());
+        return user;
     }
 }
