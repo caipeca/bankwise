@@ -18,7 +18,7 @@ public class JwtTokenProvider {
     @Value("${security.jwt.secret}")
     private String secretKeyPlain;
 
-    @Value("security.jwt.expiration")
+    @Value("${security.jwt.expiration}")
     private long expirationInMilliseconds;
 
     private Key key;

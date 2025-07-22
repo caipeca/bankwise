@@ -8,7 +8,9 @@ import com.soft.bankwise.infrastructure.persistence.entity.AccountEntity;
 import com.soft.bankwise.infrastructure.persistence.entity.UserEntity;
 import com.soft.bankwise.web.dto.request.CreateAccountRequest;
 import com.soft.bankwise.web.dto.response.AccountResponse;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Mapper {
 
     public AccountEntity toAccountEntity(Account account){

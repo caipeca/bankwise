@@ -8,6 +8,7 @@ import com.soft.bankwise.domain.model.User;
 import com.soft.bankwise.domain.repository.AccountDomainRepository;
 import com.soft.bankwise.domain.repository.UserDomainRepository;
 import com.soft.bankwise.web.dto.request.CreateAccountRequest;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,21 +18,18 @@ public class CreateAccountUseCase {
     private final UserDomainRepository userDomainRepository;
     private final ApplicationMapper applicationMapper;
 
-    public CreateAccountUseCase(AccountDomainRepository accountDomainRepository, UserDomainRepository userDomainRepository, ApplicationMapper applicationMapper) {
+    public CreateAccountUseCase(@Lazy AccountDomainRepository accountDomainRepository,
+                                UserDomainRepository userDomainRepository,
+                                ApplicationMapper applicationMapper) {
         this.accountDomainRepository = accountDomainRepository;
         this.userDomainRepository = userDomainRepository;
         this.applicationMapper = applicationMapper;
     }
 
-    public AccountOutput execute(CreateAccountInput input){
+    public AccountOutput execute(CreateAccountInput input) {
         User user = userDomainRepository.findById(input.getUserId());
         Account account = new Account(user, input.getBalance());
-         Account saved = accountDomainRepository.save(account);
-
-         return applicationMapper.toOutput(saved);
-    }
-
-    boolean validate(CreateAccountInput request){
-        return true;
+        Account saved = accountDomainRepository.save(account);
+        return applicationMapper.toOutput(saved);
     }
 }

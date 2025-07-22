@@ -2,7 +2,9 @@ package com.soft.bankwise.application.mapper;
 
 import com.soft.bankwise.application.dto.output.AccountOutput;
 import com.soft.bankwise.domain.model.Account;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ApplicationMapper {
 
     public AccountOutput toOutput(Account account) {
